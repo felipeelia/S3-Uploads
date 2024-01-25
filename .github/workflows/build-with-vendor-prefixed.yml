@@ -36,4 +36,4 @@ jobs:
         name: Plugin Zip
         retention-days: 2
         path: |
-          ${{ github.workspace }}/s3-uploads.zip
+          ${{ github.workspace }}/manual-install.zip
