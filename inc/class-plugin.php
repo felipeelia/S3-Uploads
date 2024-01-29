@@ -2,9 +2,9 @@
 
 namespace S3_Uploads;
 
-use Humanmade\S3_Uploads\Aws;
-use Exception;
-use WP_Error;
+use \Humanmade\S3_Uploads\Aws;
+use \Exception;
+use \WP_Error;
 
 /**
  * @psalm-consistent-constructor
@@ -323,9 +323,9 @@ class Plugin {
 	}
 
 	/**
-	 * @return Humanmade\S3_Uploads\Aws\S3\S3Client
+	 * @return \Humanmade\S3_Uploads\Aws\S3\S3Client
 	 */
-	public function s3() : Humanmade\S3_Uploads\Aws\S3\S3Client {
+	public function s3() : \Humanmade\S3_Uploads\Aws\S3\S3Client {
 
 		if ( ! empty( $this->s3 ) ) {
 			return $this->s3;
@@ -338,9 +338,9 @@ class Plugin {
 	/**
 	 * Get the AWS Sdk.
 	 *
-	 * @return Humanmade\S3_Uploads\Aws\Sdk
+	 * @return \Humanmade\S3_Uploads\Aws\Sdk
 	 */
-	public function get_aws_sdk() : Humanmade\S3_Uploads\Aws\Sdk {
+	public function get_aws_sdk() : \Humanmade\S3_Uploads\Aws\Sdk {
 		/** @var null|Humanmade\S3_Uploads\Aws\Sdk */
 		$sdk = apply_filters( 's3_uploads_aws_sdk', null, $this );
 		if ( $sdk ) {

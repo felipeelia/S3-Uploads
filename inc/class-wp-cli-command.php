@@ -2,10 +2,10 @@
 
 namespace S3_Uploads;
 
-use Humanmade\S3_Uploads\Aws\Command;
-use Humanmade\S3_Uploads\Aws\S3\Transfer;
-use Exception;
-use WP_CLI;
+use \Humanmade\S3_Uploads\Aws\Command;
+use \Humanmade\S3_Uploads\Aws\S3\Transfer;
+use \Exception;
+use \WP_CLI;
 
 class WP_CLI_Command extends \WP_CLI_Command {
 

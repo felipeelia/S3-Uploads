@@ -31,14 +31,15 @@
 	"scripts": {
 		"test": "./tests/run-tests.sh",
 		"check-types": "./vendor/bin/psalm",
-		"strauss": [
-			"vendor/bin/strauss"
+		"prefix-namespaces": [
+			"vendor/bin/strauss",
+			"sed -i 's/ \\\\Aws\\\\EndpointV2\\\\EndpointProviderV2/ \\\\Humanmade\\\\S3_Uploads\\\\Aws\\\\EndpointV2\\\\EndpointProviderV2/1' vendor-prefixed/aws/aws-sdk-php/src/ClientResolver.php"
 		],
 		"post-install-cmd": [
-			"@strauss"
+			"@prefix-namespaces"
 		],
 		"post-update-cmd": [
-			"@strauss"
+			"@prefix-namespaces"
 		]
 	},
 	"config": {

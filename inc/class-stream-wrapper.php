@@ -2,17 +2,17 @@
 
 namespace S3_Uploads;
 
-use Humanmade\S3_Uploads\Aws\CacheInterface;
-use Humanmade\S3_Uploads\Aws\LruArrayCache;
-use Humanmade\S3_Uploads\Aws\Result;
-use Humanmade\S3_Uploads\Aws\S3\Exception\S3Exception;
-use Humanmade\S3_Uploads\Aws\S3\S3ClientInterface;
-use Exception;
-use Humanmade\S3_Uploads\GuzzleHttp\Psr7; //phpcs:ignore -- Used in Psalm types
-use Humanmade\S3_Uploads\GuzzleHttp\Psr7\CachingStream;
-use Humanmade\S3_Uploads\GuzzleHttp\Psr7\MimeType;
-use Humanmade\S3_Uploads\GuzzleHttp\Psr7\Stream;
-use Humanmade\S3_Uploads\Psr\Http\Message\StreamInterface; //phpcs:ignore -- Used in Psalm types
+use \Humanmade\S3_Uploads\Aws\CacheInterface;
+use \Humanmade\S3_Uploads\Aws\LruArrayCache;
+use \Humanmade\S3_Uploads\Aws\Result;
+use \Humanmade\S3_Uploads\Aws\S3\Exception\S3Exception;
+use \Humanmade\S3_Uploads\Aws\S3\S3ClientInterface;
+use \Exception;
+use \Humanmade\S3_Uploads\GuzzleHttp\Psr7; //phpcs:ignore -- Used in Psalm types
+use \Humanmade\S3_Uploads\GuzzleHttp\Psr7\CachingStream;
+use \Humanmade\S3_Uploads\GuzzleHttp\Psr7\MimeType;
+use \Humanmade\S3_Uploads\GuzzleHttp\Psr7\Stream;
+use \Humanmade\S3_Uploads\Psr\Http\Message\StreamInterface; //phpcs:ignore -- Used in Psalm types
 
 // phpcs:disable WordPress.NamingConventions.ValidVariableName.MemberNotSnakeCase
 // phpcs:disable WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid
