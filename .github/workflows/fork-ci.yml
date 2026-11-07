@@ -1,0 +1,72 @@
+name: Fork - CI
+
+# Checks the prefixed build. Replaces upstream's ci.yml, which the overlay removes.
+
+on:
+  pull_request:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build and check prefixing
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: pcov
+          coverage: none
+
+      - name: Install dependencies and build vendor-prefixed
+        run: composer install --no-interaction --no-progress
+
+      - name: Check for unprefixed dependency references
+        run: php .fork/check-prefixes.php
+
+      - name: Smoke test (prefixed build alone)
+        run: php .fork/smoke-test.php
+
+      - name: Smoke test (alongside an unprefixed AWS SDK)
+        run: php .fork/smoke-test.php --with-unprefixed-sdk
+
+      - name: Psalm
+        run: php -d memory_limit=-1 vendor/bin/psalm --no-progress --output-format=github
+
+      - name: Build plugin zip
+        run: bash .fork/build-zip.sh manual-install.zip
+
+      - name: Upload plugin zip
+        uses: actions/upload-artifact@v7
+        with:
+          name: s3-uploads-plugin
+          path: manual-install.zip
+          retention-days: 7
+
+  tests:
+    name: PHPUnit (upstream suite)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: pcov
+          coverage: none
+
+      - name: Install dependencies and build vendor-prefixed
+        run: composer install --no-interaction --no-progress
+
+      - name: Run tests
+        run: bash .fork/run-tests.sh
