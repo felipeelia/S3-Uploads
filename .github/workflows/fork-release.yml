@@ -53,12 +53,11 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
-          extensions: pcov
           coverage: none
 
       - name: Install dependencies and build vendor-prefixed
         if: steps.version.outputs.skip == 'false'
-        run: composer install --no-interaction --no-progress
+        run: composer install --no-interaction --no-progress --ignore-platform-reqs
 
       - name: Check the build
         if: steps.version.outputs.skip == 'false'

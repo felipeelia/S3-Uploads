@@ -108,7 +108,6 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
-          extensions: pcov
           coverage: none
 
       - name: Create sync branch
@@ -136,7 +135,7 @@ jobs:
             fi
             echo "::endgroup::"
           }
-          run "composer install (Strauss build)" "composer install --no-interaction --no-progress"
+          run "composer install (Strauss build)" "composer install --no-interaction --no-progress --ignore-platform-reqs"
           run "No unprefixed dependency references" "php .fork/check-prefixes.php"
           run "Smoke test (prefixed build alone)" "php .fork/smoke-test.php"
           run "Smoke test (alongside an unprefixed AWS SDK)" "php .fork/smoke-test.php --with-unprefixed-sdk"

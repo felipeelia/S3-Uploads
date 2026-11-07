@@ -23,11 +23,10 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
-          extensions: pcov
           coverage: none
 
       - name: Install dependencies and build vendor-prefixed
-        run: composer install --no-interaction --no-progress
+        run: composer install --no-interaction --no-progress --ignore-platform-reqs
 
       - name: Check for unprefixed dependency references
         run: php .fork/check-prefixes.php
@@ -62,11 +61,10 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
-          extensions: pcov
           coverage: none
 
       - name: Install dependencies and build vendor-prefixed
-        run: composer install --no-interaction --no-progress
+        run: composer install --no-interaction --no-progress --ignore-platform-reqs
 
       - name: Run tests
         run: bash .fork/run-tests.sh
