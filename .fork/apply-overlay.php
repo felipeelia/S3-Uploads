@@ -43,6 +43,7 @@ plugin_entry_file( $version );
 rewrite_vendor_references();
 psalm_config();
 gitignore();
+readme();
 
 foreach ( REMOVE_PATHS as $path ) {
 	if ( file_exists( $path ) ) {
@@ -224,6 +225,28 @@ function psalm_config(): void {
 		"<?php\n// Added by .fork/apply-overlay.php: lets Psalm resolve the prefixed dependencies.\n" .
 		"require_once dirname( __DIR__ ) . '/vendor-prefixed/autoload.php';\n"
 	);
+	echo "Updated {$file}\n";
+}
+
+/**
+ * Adds the fork's installation instructions to README.md, before upstream's
+ * "Getting Set Up" section. The text lives in .fork/readme-section.md, so it
+ * survives every sync (README.md itself is reset to upstream's on each one).
+ */
+function readme(): void {
+	$file    = 'README.md';
+	$section = (string) file_get_contents( __DIR__ . '/readme-section.md' );
+	if ( trim( $section ) === '' ) {
+		fail( '.fork/readme-section.md is missing or empty.' );
+	}
+
+	$contents = replace_once(
+		$file,
+		(string) file_get_contents( $file ),
+		'/^## Getting Set Up$/m',
+		rtrim( $section ) . "\n\n## Getting Set Up"
+	);
+	file_put_contents( $file, $contents );
 	echo "Updated {$file}\n";
 }
 
