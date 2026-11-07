@@ -6,34 +6,40 @@
 		"wordpress"
 	],
 	"license": "GPL-2.0+",
+	"autoload": {
+		"classmap": [
+			"inc/"
+		]
+	},
 	"authors": [
 		{
-			"name":"Human Made Limited",
-			"email":"support@humanmade.co.uk",
-			"homepage":"http://hmn.md/"
+			"name": "Human Made",
+			"homepage": "https://humanmade.com/"
 		}
 	],
 	"support": {
-			"issues": "https://github.com/humanmade/s3-uploads/issues",
-			"source": "https://github.com/humanmade/s3-uploads"
+		"issues": "https://github.com/humanmade/s3-uploads/issues",
+		"source": "https://github.com/humanmade/s3-uploads"
 	},
 	"type": "wordpress-plugin",
 	"require": {
+		"php": ">=8.0",
 		"composer/installers": "~1.0 || ^2.0",
-		"aws/aws-sdk-php": "~3.18"
+		"aws/aws-sdk-php": "^3.366"
 	},
 	"require-dev": {
+		"phpunit/phpunit": "^9.6",
 		"pcov/clobber": "^2.0",
-		"humanmade/psalm-plugin-wordpress": "^1.0",
-		"brianhenryie/strauss": "^0.15.0",
-		"yoast/phpunit-polyfills": "^2.0"
+		"vimeo/psalm": "^5.0",
+		"humanmade/psalm-plugin-wordpress": "^3.1",
+		"yoast/phpunit-polyfills": "^4.0"
 	},
 	"scripts": {
 		"test": "./tests/run-tests.sh",
 		"check-types": "./vendor/bin/psalm",
 		"prefix-namespaces": [
-			"vendor/bin/strauss",
-			"sed -i 's/ \\\\Aws\\\\EndpointV2\\\\EndpointProviderV2/ \\\\Humanmade\\\\S3_Uploads\\\\Aws\\\\EndpointV2\\\\EndpointProviderV2/1' vendor-prefixed/aws/aws-sdk-php/src/ClientResolver.php"
+			"Composer\\Config::disableProcessTimeout",
+			"bash .fork/build-prefixed.sh"
 		],
 		"post-install-cmd": [
 			"@prefix-namespaces"
@@ -45,6 +51,21 @@
 	"config": {
 		"allow-plugins": {
 			"composer/installers": true
+		}
+	},
+	"extra": {
+		"strauss": {
+			"target_directory": "vendor-prefixed",
+			"namespace_prefix": "Humanmade\\S3_Uploads\\",
+			"classmap_prefix": "Humanmade_S3_Uploads_",
+			"constant_prefix": "HUMANMADE_S3_UPLOADS_",
+			"packages": [
+				"aws/aws-sdk-php"
+			],
+			"update_call_sites": false,
+			"delete_vendor_packages": false,
+			"include_modified_date": false,
+			"include_author": false
 		}
 	}
 }

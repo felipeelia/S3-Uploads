@@ -1,8 +1,17 @@
 <?xml version="1.0"?>
-<psalm requireVoidReturnType="false" totallyTyped="true" ensureArrayStringOffsetsExist="true">
+<psalm
+    autoloader="psalm/fork-autoload.php"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+    errorLevel="2"
+    ensureArrayStringOffsetsExist="true"
+>
     <projectFiles>
         <directory name="./"/>
          <ignoreFiles>
+            <directory name="vendor-prefixed"/>
+            <directory name=".fork"/>
             <directory name="vendor"/>
             <directory name="psalm"/>
             <directory name="tests"/>
@@ -11,7 +20,6 @@
     <stubs>
         <file name="psalm/stubs/imagick.php"/>
         <file name="psalm/stubs/constants.php"/>
-        <file name="inc/class-wp-cli-command.php"/>
     </stubs>
     <globals>
         <var name="wp_version" type="string"/>
@@ -24,6 +32,6 @@
         </MissingFile>
     </issueHandlers>
     <plugins>
-        <pluginClass xmlns="https://getpsalm.org/schema/config" class="PsalmWordPress\Plugin"/>
+        <pluginClass class="PsalmWordPress\Plugin"/>
     </plugins>
 </psalm>
