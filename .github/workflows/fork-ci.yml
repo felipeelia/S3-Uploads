@@ -68,3 +68,27 @@ jobs:
 
       - name: Run tests
         run: bash .fork/run-tests.sh
+
+  e2e:
+    name: End-to-end (built zip in WordPress)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: gd, mysqli, zip
+          tools: composer, wp-cli
+          coverage: none
+
+      - name: Install dependencies and build vendor-prefixed
+        run: composer install --no-interaction --no-progress --ignore-platform-reqs
+
+      # Installs the built zip in a real WordPress (MySQL and MinIO in Docker) and
+      # tests uploads, the WP-CLI commands, and coexistence with another plugin
+      # that bundles its own AWS SDK. See .fork/e2e/run.sh.
+      - name: Run end-to-end tests
+        run: bash .fork/e2e/ci.sh

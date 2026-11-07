@@ -108,6 +108,8 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
+          extensions: gd, mysqli, zip
+          tools: composer, wp-cli
           coverage: none
 
       - name: Create sync branch
@@ -140,6 +142,8 @@ jobs:
           run "Smoke test (prefixed build alone)" "php .fork/smoke-test.php"
           run "Smoke test (alongside an unprefixed AWS SDK)" "php .fork/smoke-test.php --with-unprefixed-sdk"
           run "Psalm" "php -d memory_limit=-1 vendor/bin/psalm --no-progress"
+          run "PHPUnit (upstream suite)" "bash .fork/run-tests.sh"
+          run "End-to-end: built zip in WordPress, WP-CLI commands, another plugin's AWS SDK" "bash .fork/e2e/ci.sh"
           echo "ok=$([ $status -eq 0 ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
 
       - name: Open pull request
