@@ -1,0 +1,51 @@
+<?php
+namespace Humanmade\S3_Uploads\Aws\SocialMessaging;
+
+use Humanmade\S3_Uploads\Aws\AwsClient;
+
+/**
+ * This client is used to interact with the **AWS End User Messaging Social** service.
+ * @method \Humanmade\S3_Uploads\Aws\Result associateWhatsAppBusinessAccount(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise associateWhatsAppBusinessAccountAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result createWhatsAppMessageTemplate(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise createWhatsAppMessageTemplateAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result createWhatsAppMessageTemplateFromLibrary(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise createWhatsAppMessageTemplateFromLibraryAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result createWhatsAppMessageTemplateMedia(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise createWhatsAppMessageTemplateMediaAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result deleteWhatsAppMessageMedia(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise deleteWhatsAppMessageMediaAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result deleteWhatsAppMessageTemplate(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise deleteWhatsAppMessageTemplateAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result disassociateWhatsAppBusinessAccount(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise disassociateWhatsAppBusinessAccountAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getLinkedWhatsAppBusinessAccount(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getLinkedWhatsAppBusinessAccountAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getLinkedWhatsAppBusinessAccountPhoneNumber(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getLinkedWhatsAppBusinessAccountPhoneNumberAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getWhatsAppMessageMedia(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getWhatsAppMessageMediaAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getWhatsAppMessageTemplate(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getWhatsAppMessageTemplateAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listLinkedWhatsAppBusinessAccounts(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listLinkedWhatsAppBusinessAccountsAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listTagsForResource(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listTagsForResourceAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listWhatsAppMessageTemplates(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listWhatsAppMessageTemplatesAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listWhatsAppTemplateLibrary(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listWhatsAppTemplateLibraryAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result postWhatsAppMessageMedia(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise postWhatsAppMessageMediaAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result putWhatsAppBusinessAccountEventDestinations(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise putWhatsAppBusinessAccountEventDestinationsAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result sendWhatsAppMessage(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise sendWhatsAppMessageAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result tagResource(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise tagResourceAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result untagResource(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise untagResourceAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result updateWhatsAppMessageTemplate(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise updateWhatsAppMessageTemplateAsync(array $args = [])
+ */
+class SocialMessagingClient extends AwsClient {}

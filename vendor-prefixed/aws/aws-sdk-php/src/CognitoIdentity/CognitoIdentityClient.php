@@ -1,0 +1,56 @@
+<?php
+namespace Humanmade\S3_Uploads\Aws\CognitoIdentity;
+
+use Humanmade\S3_Uploads\Aws\AwsClient;
+
+/**
+ * This client is used to interact with the **Amazon Cognito Identity** service.
+ *
+ * @method \Humanmade\S3_Uploads\Aws\Result createIdentityPool(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise createIdentityPoolAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result deleteIdentities(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise deleteIdentitiesAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result deleteIdentityPool(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise deleteIdentityPoolAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result describeIdentity(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise describeIdentityAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result describeIdentityPool(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise describeIdentityPoolAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getCredentialsForIdentity(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getCredentialsForIdentityAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getId(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getIdAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getIdentityPoolRoles(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getIdentityPoolRolesAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getOpenIdToken(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getOpenIdTokenAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getOpenIdTokenForDeveloperIdentity(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getOpenIdTokenForDeveloperIdentityAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getPrincipalTagAttributeMap(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getPrincipalTagAttributeMapAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listIdentities(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listIdentitiesAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listIdentityPools(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listIdentityPoolsAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listTagsForResource(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listTagsForResourceAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result lookupDeveloperIdentity(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise lookupDeveloperIdentityAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result mergeDeveloperIdentities(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise mergeDeveloperIdentitiesAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result setIdentityPoolRoles(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise setIdentityPoolRolesAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result setPrincipalTagAttributeMap(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise setPrincipalTagAttributeMapAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result tagResource(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise tagResourceAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result unlinkDeveloperIdentity(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise unlinkDeveloperIdentityAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result unlinkIdentity(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise unlinkIdentityAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result untagResource(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise untagResourceAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result updateIdentityPool(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise updateIdentityPoolAsync(array $args = [])
+ */
+class CognitoIdentityClient extends AwsClient {}

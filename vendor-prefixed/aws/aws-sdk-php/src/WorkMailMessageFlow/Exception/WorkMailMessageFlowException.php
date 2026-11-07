@@ -1,0 +1,9 @@
+<?php
+namespace Humanmade\S3_Uploads\Aws\WorkMailMessageFlow\Exception;
+
+use Humanmade\S3_Uploads\Aws\Exception\AwsException;
+
+/**
+ * Represents an error interacting with the **Amazon WorkMail Message Flow** service.
+ */
+class WorkMailMessageFlowException extends AwsException {}

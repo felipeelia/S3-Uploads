@@ -1,0 +1,53 @@
+<?php
+namespace Humanmade\S3_Uploads\Aws\MigrationHubStrategyRecommendations;
+
+use Humanmade\S3_Uploads\Aws\AwsClient;
+
+/**
+ * This client is used to interact with the **Migration Hub Strategy Recommendations** service.
+ * @method \Humanmade\S3_Uploads\Aws\Result getApplicationComponentDetails(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getApplicationComponentDetailsAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getApplicationComponentStrategies(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getApplicationComponentStrategiesAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getAssessment(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getAssessmentAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getImportFileTask(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getImportFileTaskAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getLatestAssessmentId(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getLatestAssessmentIdAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getPortfolioPreferences(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getPortfolioPreferencesAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getPortfolioSummary(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getPortfolioSummaryAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getRecommendationReportDetails(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getRecommendationReportDetailsAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getServerDetails(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getServerDetailsAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getServerStrategies(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getServerStrategiesAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listAnalyzableServers(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listAnalyzableServersAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listApplicationComponents(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listApplicationComponentsAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listCollectors(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listCollectorsAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listImportFileTask(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listImportFileTaskAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listServers(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listServersAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result putPortfolioPreferences(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise putPortfolioPreferencesAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result startAssessment(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise startAssessmentAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result startImportFileTask(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise startImportFileTaskAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result startRecommendationReportGeneration(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise startRecommendationReportGenerationAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result stopAssessment(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise stopAssessmentAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result updateApplicationComponentConfig(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise updateApplicationComponentConfigAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result updateServerConfig(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise updateServerConfigAsync(array $args = [])
+ */
+class MigrationHubStrategyRecommendationsClient extends AwsClient {}

@@ -1,0 +1,51 @@
+<?php
+namespace Humanmade\S3_Uploads\Aws\ARCRegionSwitch;
+
+use Humanmade\S3_Uploads\Aws\AwsClient;
+
+/**
+ * This client is used to interact with the **ARC - Region switch** service.
+ * @method \Humanmade\S3_Uploads\Aws\Result approvePlanExecutionStep(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise approvePlanExecutionStepAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result cancelPlanExecution(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise cancelPlanExecutionAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result createPlan(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise createPlanAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result deletePlan(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise deletePlanAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getPlan(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getPlanAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getPlanEvaluationStatus(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getPlanEvaluationStatusAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getPlanExecution(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getPlanExecutionAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getPlanInRegion(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getPlanInRegionAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listPlanExecutionEvents(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listPlanExecutionEventsAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listPlanExecutions(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listPlanExecutionsAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listPlans(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listPlansAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listPlansInRegion(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listPlansInRegionAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listRoute53HealthChecks(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listRoute53HealthChecksAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listRoute53HealthChecksInRegion(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listRoute53HealthChecksInRegionAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listTagsForResource(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listTagsForResourceAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result startPlanExecution(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise startPlanExecutionAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result tagResource(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise tagResourceAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result untagResource(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise untagResourceAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result updatePlan(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise updatePlanAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result updatePlanExecution(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise updatePlanExecutionAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result updatePlanExecutionStep(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise updatePlanExecutionStepAsync(array $args = [])
+ */
+class ARCRegionSwitchClient extends AwsClient {}
