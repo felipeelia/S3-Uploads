@@ -9,13 +9,17 @@
 require '/wp-phpunit/includes/functions.php';
 
 function _manually_load_plugin() {
-	require dirname( __FILE__ ) . '/../s3-uploads.php';
+	if ( file_exists( dirname( __DIR__ ) . '/vendor/autoload.php' ) ) {
+		require dirname( __DIR__ ) . '/vendor/autoload.php';
+	}
+	require dirname( __DIR__ ) . '/s3-uploads.php';
 }
 tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );
 
 
 tests_add_filter( 's3_uploads_s3_client_params', function ( array $params ) : array {
-	$params['endpoint'] = 'http://172.17.0.2:9000';
+	$params['endpoint'] = 'http://minio:9000';
+	$params['use_path_style_endpoint'] = true;
 	return $params;
 } );
 
@@ -34,5 +38,7 @@ if ( getenv( 'S3_UPLOADS_SECRET' ) ) {
 if ( getenv( 'S3_UPLOADS_REGION' ) ) {
 	define( 'S3_UPLOADS_REGION', getenv( 'S3_UPLOADS_REGION' ) );
 }
+
+define( 'WP_TESTS_PHPUNIT_POLYFILLS_PATH', dirname( __DIR__ ) . '/vendor/yoast/phpunit-polyfills' );
 
 require '/wp-phpunit/includes/bootstrap.php';

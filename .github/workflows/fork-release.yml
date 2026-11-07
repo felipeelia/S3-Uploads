@@ -1,0 +1,109 @@
+name: Fork - Release
+
+# Releases whatever version s3-uploads.php declares, when that tag doesn't exist yet.
+# Runs on every push to master, so merging a sync PR (or a PR that bumps
+# Version: to X.Y.Z.2 for a fork-only fix) publishes a release.
+#
+# As in ElasticPress, the tag points at a commit that exists only for the
+# release. That commit adds the built vendor-prefixed/ and a composer.json
+# without the AWS SDK in "require", so installing the tag with Composer gives
+# a self-contained plugin and nothing in the site's vendor/. master itself
+# never contains built files.
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fork-release
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Read version
+        id: version
+        run: |
+          set -euo pipefail
+          version="$(sed -nE 's/^Version:[[:space:]]*([^[:space:]]+).*/\1/p' s3-uploads.php | head -1)"
+          if ! [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::Version '${version}' in s3-uploads.php is not <upstream X.Y.Z>.<n>."
+            exit 1
+          fi
+          if git ls-remote --exit-code --tags origin "refs/tags/${version}" > /dev/null; then
+            echo "Tag ${version} already exists; nothing to release."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
+          echo "upstream=${version%.*}" >> "$GITHUB_OUTPUT"
+
+      - name: Set up PHP
+        if: steps.version.outputs.skip == 'false'
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+
+      - name: Install dependencies and build vendor-prefixed
+        if: steps.version.outputs.skip == 'false'
+        run: composer install --no-interaction --no-progress --ignore-platform-reqs
+
+      - name: Check the build
+        if: steps.version.outputs.skip == 'false'
+        run: |
+          php .fork/check-prefixes.php
+          php .fork/smoke-test.php
+          php .fork/smoke-test.php --with-unprefixed-sdk
+
+      - name: Build plugin zip
+        if: steps.version.outputs.skip == 'false'
+        run: bash .fork/build-zip.sh manual-install.zip
+
+      - name: Create release commit and tag
+        if: steps.version.outputs.skip == 'false'
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "release/${VERSION}"
+          php .fork/prepare-release.php
+          git add composer.json
+          git add -f vendor-prefixed
+          git commit --quiet --no-verify -m "Release ${VERSION}"
+          git tag -a "${VERSION}" -m "Release ${VERSION}"
+          git push origin "refs/tags/${VERSION}"
+
+      - name: Publish GitHub release
+        if: steps.version.outputs.skip == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.version.outputs.version }}
+          UPSTREAM: ${{ steps.version.outputs.upstream }}
+        run: |
+          set -euo pipefail
+          upstream_url="https://github.com/humanmade/S3-Uploads/releases/tag/${UPSTREAM}"
+          cat > notes.md <<EOF
+          S3 Uploads with its dependencies (AWS SDK, Guzzle, ...) prefixed under \`Humanmade\\S3_Uploads\\\`, so it can't conflict with other copies of the AWS SDK on the same site.
+
+          Based on upstream [${UPSTREAM}](${upstream_url}).
+
+          - **Manual install:** \`manual-install.zip\` (plugin files at the zip root, same layout as previous releases).
+          - **Composer:** require \`humanmade/s3-uploads:${VERSION}\` with this repository as a \`vcs\` repository. The tag contains the built \`vendor-prefixed/\` and doesn't pull the AWS SDK into your \`vendor/\`.
+          EOF
+          gh release create "${VERSION}" manual-install.zip \
+            --verify-tag \
+            --title "${VERSION}" \
+            --notes-file notes.md
