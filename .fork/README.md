@@ -15,12 +15,14 @@ The fork doesn't maintain hand-made changes to upstream files. Every change is *
 | `.fork/check-prefixes.php` | Guard: resolves every name in the plugin with PHP-Parser and scans `vendor-prefixed/`. Fails on any unprefixed reference. Tests can't catch these, because tests also load the unprefixed SDK from `vendor/`. |
 | `.fork/smoke-test.php` | Offline: loads the plugin with only `vendor-prefixed/`, creates an S3 client and signs a request. With `--with-unprefixed-sdk`, does the same while another, unprefixed AWS SDK is loaded. |
 | `.fork/run-tests.sh` | Upstream's PHPUnit suite against an S3-compatible server (Docker). |
+| `.fork/e2e/run.sh` | End-to-end test of the built zip inside a real WordPress site, against an S3-compatible server: CLI and REST (HTTP) uploads, generated sizes, URLs, files served from S3, deleting attachments, every `wp s3-uploads` file command (`verify`, `cp`, `ls`, `rm`, `upload-directory`, `get-attachment-files`), and **coexistence with another plugin that bundles its own, unprefixed AWS SDK**. Works against any site, e.g. a Local site: `WP="wp --path=…" SITE_URL=… PLUGIN_ZIP=manual-install.zip bash .fork/e2e/run.sh`. It installs and removes everything it needs. |
+| `.fork/e2e/ci.sh` | Runs `e2e/run.sh` on a throwaway site: MySQL and MinIO in Docker, WordPress via WP-CLI and PHP's built-in server. Used by CI and the sync job; runnable locally (needs Docker, PHP with GD and mysqli, WP-CLI, jq). |
 | `.fork/build-zip.sh`, `.fork/prepare-release.php` | Build the release zip, and the consumer-facing `composer.json` (AWS SDK removed from `require`). |
 
 Workflows (all fork-owned, named `fork-*.yml`):
 
-- **Fork - Sync upstream release** (`fork-sync.yml`): daily. If upstream has a release newer than the last one synced, runs `sync.sh`, runs the checks, and opens a PR titled `Sync upstream X.Y.Z (release X.Y.Z.1)`. The PR is a draft if any check failed.
-- **Fork - CI** (`fork-ci.yml`): on PRs and pushes to `master`. Runs the prefixing guard, smoke tests, Psalm and PHPUnit, and uploads the plugin zip as an artifact.
+- **Fork - Sync upstream release** (`fork-sync.yml`): daily. If upstream has a release newer than the last one synced, runs `sync.sh`, runs the checks (prefixing guard, smoke tests, Psalm, PHPUnit and the end-to-end tests, because PRs it opens don't trigger CI), and opens a PR titled `Sync upstream X.Y.Z (release X.Y.Z.1)`. The PR is a draft if any check failed.
+- **Fork - CI** (`fork-ci.yml`): on PRs and pushes to `master`. Runs the prefixing guard, smoke tests, Psalm, PHPUnit and the end-to-end tests, and uploads the plugin zip as an artifact.
 - **Fork - Release** (`fork-release.yml`): on pushes to `master`. If the `Version:` in `s3-uploads.php` has no tag yet, builds, tags a release commit that includes `vendor-prefixed/` (as ElasticPress does), and publishes a GitHub release with `manual-install.zip`.
 
 ## Versions
