@@ -80,9 +80,16 @@ jobs:
             echo "skip=true" >> "$GITHUB_OUTPUT"; exit 0
           fi
 
+          # A sync PR that is already open means there's nothing to do. A branch
+          # without an open PR is left over from a run that failed after the
+          # push (e.g. PR creation was refused), so rebuild it.
           if git ls-remote --exit-code --heads origin "sync/upstream-${tag}" > /dev/null; then
-            echo "Branch sync/upstream-${tag} already exists (sync PR pending). Nothing to do."
-            echo "skip=true" >> "$GITHUB_OUTPUT"; exit 0
+            pr="$(gh pr list --repo "${GITHUB_REPOSITORY}" --head "sync/upstream-${tag}" --state open --json url --jq '.[0].url // empty')"
+            if [ -n "$pr" ]; then
+              echo "Sync PR already open: ${pr}. Nothing to do."
+              echo "skip=true" >> "$GITHUB_OUTPUT"; exit 0
+            fi
+            echo "::notice::Branch sync/upstream-${tag} exists without an open PR; rebuilding it."
           fi
 
           # Don't go backwards (upstream also releases backports for older
@@ -157,7 +164,8 @@ jobs:
         run: |
           set -euo pipefail
           branch="sync/upstream-${TAG}"
-          git push origin "$branch"
+          # Force: the branch may be left over from a failed run (see "Decide what to sync").
+          git push --force origin "$branch"
 
           notes="$(gh api "repos/${UPSTREAM_REPO}/releases/tags/${TAG}" --jq .body 2>/dev/null || true)"
           {
@@ -190,6 +198,8 @@ jobs:
 
           draft=()
           [ "$OK" = "true" ] || draft=(--draft)
-          gh pr create --base "$BASE_BRANCH" --head "$branch" \
+          # --repo is required: with a remote named "upstream", gh would target
+          # humanmade/S3-Uploads, where this token can't open PRs.
+          gh pr create --repo "$GITHUB_REPOSITORY" --base "$BASE_BRANCH" --head "$branch" \
             --title "Sync upstream ${TAG} (release ${VERSION})" \
             --body-file pr-body.md "${draft[@]}"

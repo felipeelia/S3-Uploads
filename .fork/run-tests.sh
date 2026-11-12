@@ -24,7 +24,8 @@ cleanup() { docker rm -f "$S3_CONTAINER" > /dev/null 2>&1 || true; }
 trap cleanup EXIT
 cleanup
 
-# tests/bootstrap.php expects the endpoint at http://minio:9000.
+# tests/bootstrap.php expects the endpoint at http://s3:9000 (upstream >= 3.0.14)
+# or http://minio:9000 (older), so the server is linked under both names.
 docker run --rm -d --name "$S3_CONTAINER" --tmpfs /data \
 	-e MINIO_ROOT_USER=AWSACCESSKEY -e MINIO_ROOT_PASSWORD=AWSSECRETKEY \
 	"$S3_IMAGE" server /data > /dev/null
@@ -33,7 +34,7 @@ echo "Waiting for the S3 server and creating the 'tests' bucket..."
 create_bucket='
 require "/code/vendor-prefixed/autoload.php";
 $s3 = new Humanmade\S3_Uploads\Aws\S3\S3Client( [
-	"version" => "latest", "region" => "us-east-1", "endpoint" => "http://minio:9000",
+	"version" => "latest", "region" => "us-east-1", "endpoint" => "http://s3:9000",
 	"use_path_style_endpoint" => true,
 	"credentials" => [ "key" => "AWSACCESSKEY", "secret" => "AWSSECRETKEY" ],
 ] );
@@ -41,7 +42,7 @@ if ( ! $s3->doesBucketExist( "tests" ) ) { $s3->createBucket( [ "Bucket" => "tes
 '
 ready=""
 for _ in $(seq 1 30); do
-	if docker run --rm --link "$S3_CONTAINER:minio" -v "$PWD:/code" --entrypoint=php "$TESTER_IMAGE" -r "$create_bucket" > /dev/null 2>&1; then
+	if docker run --rm --link "$S3_CONTAINER:minio" --link "$S3_CONTAINER:s3" -v "$PWD:/code" --entrypoint=php "$TESTER_IMAGE" -r "$create_bucket" > /dev/null 2>&1; then
 		ready=1
 		break
 	fi
@@ -56,6 +57,6 @@ fi
 docker run --rm \
 	-e AWS_SUPPRESS_PHP_DEPRECATION_WARNING=1 \
 	-e S3_UPLOADS_BUCKET=tests -e S3_UPLOADS_KEY=AWSACCESSKEY -e S3_UPLOADS_SECRET=AWSSECRETKEY -e S3_UPLOADS_REGION=us-east-1 \
-	--link "$S3_CONTAINER:minio" -v "$PWD:/code" \
+	--link "$S3_CONTAINER:minio" --link "$S3_CONTAINER:s3" -v "$PWD:/code" \
 	--entrypoint=/bin/sh "$TESTER_IMAGE" \
 	-c "apk add --no-cache libjpeg-turbo ghostscript imagemagick-pdf > /dev/null 2>&1 && /entrypoint.sh $*"
