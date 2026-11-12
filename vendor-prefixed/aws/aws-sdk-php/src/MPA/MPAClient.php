@@ -1,0 +1,51 @@
+<?php
+namespace Humanmade\S3_Uploads\Aws\MPA;
+
+use Humanmade\S3_Uploads\Aws\AwsClient;
+
+/**
+ * This client is used to interact with the **AWS Multi-party Approval** service.
+ * @method \Humanmade\S3_Uploads\Aws\Result cancelSession(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise cancelSessionAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result createApprovalTeam(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise createApprovalTeamAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result createIdentitySource(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise createIdentitySourceAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result deleteIdentitySource(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise deleteIdentitySourceAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result deleteInactiveApprovalTeamVersion(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise deleteInactiveApprovalTeamVersionAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getApprovalTeam(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getApprovalTeamAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getIdentitySource(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getIdentitySourceAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getPolicyVersion(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getPolicyVersionAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getResourcePolicy(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getResourcePolicyAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getSession(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getSessionAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listApprovalTeams(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listApprovalTeamsAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listIdentitySources(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listIdentitySourcesAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listPolicies(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listPoliciesAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listPolicyVersions(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listPolicyVersionsAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listResourcePolicies(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listResourcePoliciesAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listSessions(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listSessionsAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listTagsForResource(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listTagsForResourceAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result startActiveApprovalTeamDeletion(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise startActiveApprovalTeamDeletionAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result tagResource(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise tagResourceAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result untagResource(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise untagResourceAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result updateApprovalTeam(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise updateApprovalTeamAsync(array $args = [])
+ */
+class MPAClient extends AwsClient {}

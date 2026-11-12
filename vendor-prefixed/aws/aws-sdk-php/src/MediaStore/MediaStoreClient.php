@@ -1,0 +1,51 @@
+<?php
+namespace Humanmade\S3_Uploads\Aws\MediaStore;
+
+use Humanmade\S3_Uploads\Aws\AwsClient;
+
+/**
+ * This client is used to interact with the **AWS Elemental MediaStore** service.
+ * @method \Humanmade\S3_Uploads\Aws\Result createContainer(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise createContainerAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result deleteContainer(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise deleteContainerAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result deleteContainerPolicy(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise deleteContainerPolicyAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result deleteCorsPolicy(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise deleteCorsPolicyAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result deleteLifecyclePolicy(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise deleteLifecyclePolicyAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result deleteMetricPolicy(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise deleteMetricPolicyAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result describeContainer(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise describeContainerAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getContainerPolicy(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getContainerPolicyAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getCorsPolicy(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getCorsPolicyAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getLifecyclePolicy(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getLifecyclePolicyAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getMetricPolicy(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getMetricPolicyAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listContainers(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listContainersAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listTagsForResource(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listTagsForResourceAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result putContainerPolicy(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise putContainerPolicyAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result putCorsPolicy(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise putCorsPolicyAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result putLifecyclePolicy(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise putLifecyclePolicyAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result putMetricPolicy(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise putMetricPolicyAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result startAccessLogging(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise startAccessLoggingAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result stopAccessLogging(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise stopAccessLoggingAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result tagResource(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise tagResourceAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result untagResource(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise untagResourceAsync(array $args = [])
+ */
+class MediaStoreClient extends AwsClient {}

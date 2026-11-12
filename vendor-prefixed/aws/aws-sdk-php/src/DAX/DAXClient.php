@@ -1,0 +1,51 @@
+<?php
+namespace Humanmade\S3_Uploads\Aws\DAX;
+
+use Humanmade\S3_Uploads\Aws\AwsClient;
+
+/**
+ * This client is used to interact with the **Amazon DynamoDB Accelerator (DAX)** service.
+ * @method \Humanmade\S3_Uploads\Aws\Result createCluster(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise createClusterAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result createParameterGroup(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise createParameterGroupAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result createSubnetGroup(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise createSubnetGroupAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result decreaseReplicationFactor(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise decreaseReplicationFactorAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result deleteCluster(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise deleteClusterAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result deleteParameterGroup(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise deleteParameterGroupAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result deleteSubnetGroup(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise deleteSubnetGroupAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result describeClusters(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise describeClustersAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result describeDefaultParameters(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise describeDefaultParametersAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result describeEvents(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise describeEventsAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result describeParameterGroups(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise describeParameterGroupsAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result describeParameters(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise describeParametersAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result describeSubnetGroups(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise describeSubnetGroupsAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result increaseReplicationFactor(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise increaseReplicationFactorAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listTags(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listTagsAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result rebootNode(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise rebootNodeAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result tagResource(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise tagResourceAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result untagResource(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise untagResourceAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result updateCluster(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise updateClusterAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result updateParameterGroup(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise updateParameterGroupAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result updateSubnetGroup(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise updateSubnetGroupAsync(array $args = [])
+ */
+class DAXClient extends AwsClient {}

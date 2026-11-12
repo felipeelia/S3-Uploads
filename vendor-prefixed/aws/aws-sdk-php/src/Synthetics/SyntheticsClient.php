@@ -1,0 +1,53 @@
+<?php
+namespace Humanmade\S3_Uploads\Aws\Synthetics;
+
+use Humanmade\S3_Uploads\Aws\AwsClient;
+
+/**
+ * This client is used to interact with the **Synthetics** service.
+ * @method \Humanmade\S3_Uploads\Aws\Result associateResource(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise associateResourceAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result createCanary(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise createCanaryAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result createGroup(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise createGroupAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result deleteCanary(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise deleteCanaryAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result deleteGroup(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise deleteGroupAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result describeCanaries(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise describeCanariesAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result describeCanariesLastRun(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise describeCanariesLastRunAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result describeRuntimeVersions(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise describeRuntimeVersionsAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result disassociateResource(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise disassociateResourceAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getCanary(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getCanaryAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getCanaryRuns(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getCanaryRunsAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result getGroup(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise getGroupAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listAssociatedGroups(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listAssociatedGroupsAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listGroupResources(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listGroupResourcesAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listGroups(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listGroupsAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result listTagsForResource(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise listTagsForResourceAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result startCanary(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise startCanaryAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result startCanaryDryRun(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise startCanaryDryRunAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result stopCanary(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise stopCanaryAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result tagResource(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise tagResourceAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result untagResource(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise untagResourceAsync(array $args = [])
+ * @method \Humanmade\S3_Uploads\Aws\Result updateCanary(array $args = [])
+ * @method \Humanmade\S3_Uploads\GuzzleHttp\Promise\Promise updateCanaryAsync(array $args = [])
+ */
+class SyntheticsClient extends AwsClient {}

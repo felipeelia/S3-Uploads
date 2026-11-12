@@ -24,8 +24,7 @@
 	"type": "wordpress-plugin",
 	"require": {
 		"php": ">=8.0",
-		"composer/installers": "~1.0 || ^2.0",
-		"aws/aws-sdk-php": "^3.366"
+		"composer/installers": "~1.0 || ^2.0"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "^9.6",
@@ -36,36 +35,11 @@
 	},
 	"scripts": {
 		"test": "./tests/run-tests.sh",
-		"check-types": "./vendor/bin/psalm",
-		"prefix-namespaces": [
-			"Composer\\Config::disableProcessTimeout",
-			"bash .fork/build-prefixed.sh"
-		],
-		"post-install-cmd": [
-			"@prefix-namespaces"
-		],
-		"post-update-cmd": [
-			"@prefix-namespaces"
-		]
+		"check-types": "./vendor/bin/psalm"
 	},
 	"config": {
 		"allow-plugins": {
 			"composer/installers": true
-		}
-	},
-	"extra": {
-		"strauss": {
-			"target_directory": "vendor-prefixed",
-			"namespace_prefix": "Humanmade\\S3_Uploads\\",
-			"classmap_prefix": "Humanmade_S3_Uploads_",
-			"constant_prefix": "HUMANMADE_S3_UPLOADS_",
-			"packages": [
-				"aws/aws-sdk-php"
-			],
-			"update_call_sites": false,
-			"delete_vendor_packages": false,
-			"include_modified_date": false,
-			"include_author": false
 		}
 	}
 }
